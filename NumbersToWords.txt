@@ -1,0 +1,83 @@
+package com.wlazly;
+
+public class Main {
+
+    public static void main(String[] args) {
+//        System.out.println(numberToWords(1124));
+//        System.out.println(getDigitCount(0));
+   //   System.out.println(reverse(3254));
+       numberToWords(2);
+    }
+    public static void numberToWords(int number) {
+        if (number < 1) {
+            System.out.println("Invalid Value");
+        } else {
+
+            int numbernew = reverse(number);
+            for (int i =0; i<getDigitCount(number);i++){
+                int tensam= numbernew;
+
+
+                int jeden;
+                jeden = tensam%10;
+
+            switch (jeden) {
+
+                case 0:
+                    System.out.println("Zero");
+                    break;
+                case 1:
+                    System.out.println("One");
+                    break;
+                case 2:
+                    System.out.println("Two");
+                    break;
+                case 3:
+                    System.out.println("Tree");
+                    break;
+                case 4:
+                    System.out.println("Four");
+                    break;
+                case 5:
+                    System.out.println("Five");
+                    break;
+                case 6:
+                    System.out.println("Six");
+                    break;
+                case 7:
+                    System.out.println("Seven");
+                    break;
+                case 8:
+                    System.out.println("Eight");
+                    break;
+                case 9:
+                    System.out.println("Nine");
+                    break;
+
+            }
+            tensam = numbernew/10;
+            numbernew=tensam;
+            }
+           }
+
+        }
+
+
+    public static int getDigitCount(int number){
+        int result;
+        if (number<0) {
+            result = -1;
+        }else {
+            result=Integer.valueOf(String.valueOf(number).length());
+        }
+        return result;
+    }
+    public static int reverse (int number){
+        String rev= "";
+        int numb = 0;
+
+        for (int i =Integer.valueOf(String.valueOf(number).length()-1);
+        i>=0;i--){rev=rev+String.valueOf(number).charAt(i);}
+        return Integer.valueOf(rev);
+    }
+}

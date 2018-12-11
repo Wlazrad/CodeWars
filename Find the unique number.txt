@@ -1,0 +1,25 @@
+
+public class Solution {
+
+    public static double findUniq(double[] arr) {
+        double number=0;
+        for(int i = 0; i<arr.length-2;i++){
+            if (arr[i] == arr[i + 1] && arr[i]==arr[i+2]) {
+            }
+            if (arr[i]== arr[+1] && arr[i]!= arr[i+2]){
+                number=arr[i+2];
+            }
+            if (arr[i]!=arr[i+1] && arr[i]!=arr[i+2]){
+                number=arr[i];
+            }
+            if (arr[i]!=arr[i+1] && arr[i]==arr[i+2]){
+                number = arr[i+1];
+            }
+
+            }
+        return number;
+
+
+
+    }
+}

@@ -1,0 +1,28 @@
+
+public class Solution {
+
+    public static String camelCase(String str) {
+        String result="";
+        if(str.length()==0){
+            return result;
+        }
+        char first=str.charAt(0);
+        char firsttoupercase = Character.toUpperCase(first);
+        result=result+firsttoupercase;
+        for(int i=1;i<str.length();i++){
+            char current=str.charAt(i);
+            char previous=str.charAt(i-1);
+            if(previous==' ') {
+                char currenttouppercase = Character.toUpperCase(current);
+                result = result + currenttouppercase;
+            }
+            else{
+                char currenttolowercase = Character.toLowerCase(current);
+                result= result + currenttolowercase;
+            }
+
+        }
+        return result.replaceAll(" ","");
+
+    }
+}

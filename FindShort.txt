@@ -1,0 +1,24 @@
+/* wydaje liczbe znakow z najkrotszego wyrazu w stringu */
+
+import com.sun.org.apache.xpath.internal.operations.String;
+
+public class Solution {
+
+    public  static int findShort(String s) {
+
+        java.lang.String[] parts= s.split(" ");
+
+        int n = parts.length;
+       for (int i = 0; i<n ;i++)
+           for (int j = 0; j < n - i - 1; j++)
+               if (parts[j].length() > parts[j + 1].length())
+               {
+           java.lang.String temp = parts[j];
+           parts[j] = parts[j+1];
+           parts[j+1]= temp;
+               }
+
+
+            return parts[0].length();
+        }
+    }

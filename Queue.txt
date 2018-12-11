@@ -1,0 +1,24 @@
+public class Solution {
+
+    public static int solveSuperMarketQueue(int[] customers,int n) {
+        int kolejka1=0;
+        int kolejka2=0;
+
+
+        if(n==2) {
+            for (int i = 0; i < customers.length; i++) {
+                if (kolejka1 > kolejka2) {
+                    kolejka2 = kolejka2 + customers[i];
+                } else kolejka1 = kolejka1 + customers[i];
+
+            }
+        }else {
+            for (int i = 0; i < customers.length; i++) {
+                kolejka1=kolejka1+customers[i];
+            }
+
+        }
+
+        return kolejka1 >= kolejka2 ? kolejka1 : kolejka2;
+    }
+}
