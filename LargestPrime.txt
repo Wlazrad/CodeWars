@@ -1,0 +1,36 @@
+import java.util.ArrayList;
+
+public class LargestPrime {
+    public static int getLargestPrime(int number) {
+        if (number<=0)
+            return -1;
+        else {
+
+        ArrayList<Integer> lala = new ArrayList<>();
+        for (int i = 1; i < number; i++) {
+                if ( number%i==0&& isPrimeNumber(i)){
+                    lala.add(i);
+
+                }
+
+        }
+        System.out.println(lala.get(lala.size()-1));
+        return lala.get(lala.size()-1);
+    }}
+
+    public static boolean isPrimeNumber(int liczba)
+    {
+        if(liczba<2)
+        {
+            return false;
+        }
+        for(int i=2; i<=liczba/2; i++)
+        {
+            if(liczba%i==0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
