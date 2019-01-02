@@ -1,0 +1,34 @@
+package com.wlazly;
+
+ class Braking {
+     public static double g = 9.81;
+
+     public static double dist(double v, double mu) {
+         v = v * 1000 / 3600;
+         double d = Math.pow(v, 2) / (2 * mu * g) + v;
+         return d;
+     }
+
+     public static double speed(double d, double mu) {
+         double v = 0;
+         double b = 2 * mu * g;
+         double a = 1;
+         double c = -2 * mu * g * d;
+
+         double delta = b * b - 4 * a * c;
+
+         if (delta == 0) {
+             System.out.println("Równanie ma 1 pierwiastek, x1 = " + (-b / (2 * a)));
+         }
+         if (delta > 0) {
+             double v1 = (-b - Math.sqrt(delta)) / (2 * a);
+             double v2 = (-b + Math.sqrt(delta)) / (2 * a);
+             if (v1>v2) v=v1; else v=v2;
+
+
+         }
+         v=v*3.6;
+         return v;
+     }
+ }
+
