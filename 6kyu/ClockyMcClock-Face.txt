@@ -1,0 +1,75 @@
+Story
+Due to lack of maintenance the minute-hand has fallen off Town Hall clock face.
+
+And because the local council has lost most of our tax money to a Nigerian email scam there are no funds to fix the clock properly.
+
+Instead, they are asking for volunteer programmers to write some code that tell the time by only looking at the remaining hour-hand!
+
+What a bunch of cheapskates!
+
+Can you do it?
+
+Kata
+Given the angle (in degrees) of the hour-hand, return the time in HH:MM format. Round down to the nearest minute.
+
+Examples
+12:00 = 0 degrees
+03:00 = 90 degrees
+06:00 = 180 degrees
+09:00 = 270 degrees
+12:00 = 360 degrees
+Notes
+0 <= angle <= 360
+
+
+
+
+
+public class Dinglemouse {
+
+    public static String whatTimeIsIt(final double angle) {
+        if (angle==360||angle==0){
+            return "12:00";
+
+        }
+        double min=0;
+        min=angle*2;
+
+        int hours=0;
+        int minuts=0;
+        double rest=0;
+        rest = min/60;
+        double rest1=0;
+
+        hours =(int) min/60;
+
+        rest1=min-(hours*60);
+        minuts=(int)rest1;
+        System.out.println(min);
+        System.out.println(hours);
+        System.out.println(minuts);
+
+        String times = "";
+        String po = "";
+        String po1 ="";
+        po=po+minuts;
+        po1=po1+hours;
+        if(minuts<10){
+            String zero ="0";
+             po = zero+minuts;
+        }
+
+        if(hours<10){
+            String zero ="0";
+            po1 = zero+hours;
+        }
+        if(angle<30){
+            po1="12";
+        }
+        times=po1+":"+po;
+String ends = times.toString();
+
+        return ends;
+    }
+
+}
