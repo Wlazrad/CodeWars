@@ -1,0 +1,75 @@
+Little Annie is very excited for upcoming events. She want's to know how many days she have to wait for a specific event.
+
+Your job is to help her out.
+
+Task: Write a function which returns the number of days from today till the given date. The function will take a Date object as parameter. You have to round the amount of days.
+
+If the event is in the past, return "The day is in the past!" 
+If the event is today, return "Today is the day!" 
+Else, return "x days"
+
+
+
+
+
+
+import java.util.Date;
+import java.time.Duration;
+import java.time.Instant;
+
+public class Day{
+
+  public String countDays(final Date d) {
+    final long diff = Duration.between(Instant.now(), d.toInstant()).toDays();
+    if (diff < 0) return "The day is in the past!";
+    if (diff == 0) return "Today is the day!";
+    return diff + " days";
+  }
+}
+
+
+
+------------------------------------------------------------
+
+import java.util.Date;
+
+public class Day{
+
+
+    public static String countDays(Date d){
+        Date dzis1 = new Date();
+
+//        int dni1 = dzis1.getDay();
+//        int mies1 = dzis1.getMonth();
+//        int rok1 = dzis1.getYear();
+//
+//        Date podzis1 = new Date(rok1,mies1,dni1);
+//
+//        int dni2 = d.getDay();
+//        int mies2 = d.getMonth();
+//        int rok2 = d.getYear();
+//        Date podzis2 = new Date(rok2,mies2,dni2);
+
+        System.out.println(dzis1);
+        System.out.println(d);
+
+        long roznica = d.getTime() - dzis1.getTime();
+        long result= roznica / ((long) (1000 * 60 * 60 * 24));
+        System.out.println(d.getTime());
+        System.out.println(dzis1.getTime());
+        String result2="";
+
+
+        if(result==0)
+            result2="Today is the day!";
+        if(result<0)
+            result2= "The day is in the past!";
+        if (result>0)
+            result2=String.valueOf(result)+" days";
+
+        return result2;
+    }
+
+
+
+}
