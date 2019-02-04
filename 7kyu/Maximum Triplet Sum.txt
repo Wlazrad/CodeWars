@@ -1,0 +1,46 @@
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+
+public class Solution {
+    public static int maxTriSum (int[] numbers)
+    {
+        if(numbers.length<3){
+            return -1;
+        }else {
+
+
+            Arrays.sort(numbers);
+
+            List<Integer> myList = new ArrayList<>();
+
+
+            for (int i = 0; i < numbers.length - 1; i++) {
+                if (numbers[i] != numbers[i + 1]) {
+                    myList.add(numbers[i + 1]);
+                }
+            }
+//        Arrays.sort(numbers);
+//        System.out.println(numbers[numbers.length-1]
+//        +numbers[numbers.length-2]
+//        +numbers[numbers.length-3]);
+//        System.out.println(numbers[7]);
+//        int num = numbers[numbers.length-1]
+//                +numbers[numbers.length-2]
+//                +numbers[numbers.length-3];
+
+            int listsize = 0;
+            listsize = myList.size();
+
+
+            int result = 0;
+
+            result = myList.get(listsize - 1)
+                    + myList.get(listsize - 2)
+                    + myList.get(listsize - 3);
+            return result; // Do your magic!
+        }
+    }
+}

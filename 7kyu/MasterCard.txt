@@ -1,0 +1,34 @@
+public class Kata {
+    public static String getIssuer(String cardNumber) {
+        String result = "";
+        if (cardNumber.charAt(0)=='4'
+        &&(cardNumber.length()==13||cardNumber.length()==16)){
+            result="VISA";
+        }
+        else if (((cardNumber.charAt(0)=='3'&&
+        cardNumber.charAt(1)=='4')||
+        (cardNumber.charAt(0)=='3'&&
+                cardNumber.charAt(1)=='7') )&&
+        cardNumber.length()==15)
+            result="AMEX";
+
+        else if ((cardNumber.charAt(0)=='6'&&
+                cardNumber.charAt(1)=='0'&&
+                cardNumber.charAt(2)=='1'&&
+                cardNumber.charAt(3)=='1')&& cardNumber.length()==16)
+result="Discover";
+        else if((cardNumber.charAt(0)=='5'&&
+                (cardNumber.charAt(1)=='1'||
+                cardNumber.charAt(1)=='2'||
+                cardNumber.charAt(1)=='3'||
+                cardNumber.charAt(1)=='4'||
+                cardNumber.charAt(1)=='5')&&
+                cardNumber.length()==16))
+        result="Mastercard";
+        else return "Unknown";
+
+
+
+        return result;
+    }
+}

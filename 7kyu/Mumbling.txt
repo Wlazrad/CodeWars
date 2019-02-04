@@ -1,0 +1,24 @@
+public class Accumul {
+
+    public static String accum(String s) {
+       // accum("abcd") -> "A-Bb-Ccc-Dddd"
+        String wyraz="";
+
+        System.out.println(s);
+        for(int i = 0; i<s.length()+1;i++){
+            for(int j =0; j<i;j++){
+                if(j==0){
+                    String  arr = String.valueOf(s.charAt(i-1)).toUpperCase();
+                    wyraz = wyraz + String.valueOf(arr);
+                }else {
+                    String arr = String.valueOf(s.charAt(i - 1));
+                    wyraz = wyraz + String.valueOf(arr).toLowerCase();
+                }
+            }
+            wyraz=wyraz+"-";
+
+        }
+        String lalka = wyraz.substring(1,wyraz.length()-1);
+        return lalka;
+    }
+}

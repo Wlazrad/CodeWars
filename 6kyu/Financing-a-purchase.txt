@@ -1,0 +1,62 @@
+
+class Finance {
+
+    public static String amort(double rate, int bal, int term, int num_payments) {
+
+        double c;
+        double q;
+        double b ;
+        double intt;
+        double balance;
+        double princ;
+        int counter=0;
+        q=1+(rate/100/12);
+        c=bal*(Math.pow(q,term))*(q-1)/((Math.pow(q,term)-1));
+
+        double l1;
+        double l2;
+        double l3;
+        double l4;
+        String lala ="";
+
+//
+//        intt=(((bal)*rate)/12)/100;
+//        princ=c-intt;
+//        balance = bal-(princ);
+//        System.out.println(c);
+//        System.out.println(princ);
+//        System.out.println(intt);
+//        System.out.println(balance);
+        balance = bal;
+        for (int i = 1; i<=term;i++){
+            intt=(((balance)*rate)/12)/100;
+            princ=c-intt;
+            balance = balance-(princ);
+           // System.out.println(c);
+           // System.out.println(princ);
+           // System.out.println(intt);
+            //System.out.println(Math.round(balance));
+            counter++;
+
+            if(counter==num_payments) {
+                l1 = c;
+                l2 = princ;
+                l3 = intt;
+                l4 = balance;
+
+
+                lala = "num_payment "+
+                        String.valueOf(Math.round(num_payments))+
+                        " c "+String.valueOf(Math.round(l1))+
+                " princ "+String.valueOf(Math.round(l2))+
+                " int "+String.valueOf(Math.round(l3))+
+                " balance " +String.valueOf(Math.round(l4));
+
+
+                break;
+            }
+
+        }
+        return lala;
+    }
+}

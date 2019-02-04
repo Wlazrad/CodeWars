@@ -1,0 +1,36 @@
+
+public class Dinglemouse {
+
+    public static int countDeafRats(final String town) {
+
+            int dedrat = 0;
+            String lala = town.replace(" ", "");
+        if(lala.isEmpty()){
+            return 0;
+        }else {
+
+                String[] haha = lala.split("P");
+            if (lala.charAt(0) != 'P') {
+                System.out.println(haha[0]);
+                ///  System.out.println(haha[1]);
+
+                for (int i = 0; i < haha[0].length() - 1; i = i + 2) {
+                    if (haha[0].charAt(i) == 'O') {
+                        dedrat++;
+
+                    }
+                }
+            }
+
+
+            if (lala.charAt(lala.length() - 1) != 'P') {
+                for (int i = 0; i < haha[1].length() - 1; i = i + 2) {
+                    if (haha[1].charAt(i) == '~') {
+                        dedrat++;
+                    }
+                }
+            }
+
+        return dedrat;
+    }}
+}
